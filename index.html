@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta tags para configuración básica del documento -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres UTF-8 para soporte internacional -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configuración para diseño responsive -->
+    <title>PERFUMICHIC - Perfumes</title> <!-- Título que aparece en la pestaña del navegador -->
+    
+    <!-- Enlaces a archivos externos -->
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo de estilos CSS -->
+    <!-- CDN de Font Awesome para iconos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</head>
+<body>
+    <!-- Barra de navegación fija en la parte superior -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo de la marca -->
+            <div class="logo">PERFUMICHIC</div>
+            <!-- Lista de navegación -->
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li> <!-- Enlace a sección inicio -->
+                <li><a href="#productos">Productos</a></li> <!-- Enlace a sección productos -->
+                <li><a href="#carrito">Carrito</a></li> <!-- Enlace a sección carrito -->
+                <li><a href="#nosotros">Nosotros</a></li> <!-- Enlace a sección sobre nosotros -->
+                <li><a href="#contacto">Contacto</a></li> <!-- Enlace a sección contacto -->
+                <li><a href="#redes">Redes</a></li> <!-- Enlace a sección redes sociales -->
+                <li>
+                    <!-- Icono del carrito de compras con contador -->
+                    <div class="cart-icon" onclick="scrollToCart()">
+                        <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito -->
+                        <span class="cart-count" id="cartCount">0</span> <!-- Contador de productos -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección principal de bienvenida mejorada (Hero) -->
+    <section id="inicio" class="hero">
+        <!-- Canvas para partículas animadas de fondo -->
+        <canvas id="particleCanvas" class="particle-canvas"></canvas>
+        
+        <!-- Elementos flotantes decorativos mejorados -->
+        <div class="floating-elements">
+            <!-- Perfumes flotantes con diferentes animaciones -->
+            <div class="floating-perfume floating-perfume--rotate">💐</div>
+            <div class="floating-perfume floating-perfume--bounce">✨</div>
+            <div class="floating-perfume floating-perfume--pulse">🌹</div>
+            <div class="floating-perfume floating-perfume--swing">💎</div>
+            <div class="floating-perfume floating-perfume--float">🦋</div>
+            <div class="floating-perfume floating-perfume--drift">🌸</div>
+            <div class="floating-perfume floating-perfume--spiral">🌺</div>
+            <div class="floating-perfume floating-perfume--wave">💫</div>
+        </div>
+
+        <!-- Formas geométricas decorativas -->
+        <div class="geometric-shapes">
+            <div class="shape shape-circle"></div>
+            <div class="shape shape-triangle"></div>
+            <div class="shape shape-square"></div>
+            <div class="shape shape-hexagon"></div>
+        </div>
+
+        <!-- Ondas de fondo animadas -->
+        <div class="wave-container">
+            <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:rgba(78,205,196,0.3);stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:rgba(255,107,107,0.3);stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:rgba(69,183,209,0.3);stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path fill="url(#waveGradient)" d="m-5.2,25c0,0 51.5,-19.5 76.5,-19.5s76.5,19.5 76.5,19.5v3.5h-153z"/>
+            </svg>
+            <svg class="wave wave-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <path fill="rgba(255,255,255,0.1)" d="m-5.2,30c0,0 51.5,-15 76.5,-15s76.5,15 76.5,15v2h-153z"/>
+            </svg>
+        </div>
+        
+        <div class="hero-content">
+            <!-- Efecto de brillo detrás del título -->
+            <div class="title-glow"></div>
+            
+            <!-- Título principal con efecto mejorado -->
+            <h1 class="hero-title">
+                <span class="title-word" style="--i:0">P</span>
+                <span class="title-word" style="--i:1">E</span>
+                <span class="title-word" style="--i:2">R</span>
+                <span class="title-word" style="--i:3">F</span>
+                <span class="title-word" style="--i:4">U</span>
+                <span class="title-word" style="--i:5">M</span>
+                <span class="title-word" style="--i:6">I</span>
+                <span class="title-word" style="--i:7">C</span>
+                <span class="title-word" style="--i:8">H</span>
+                <span class="title-word" style="--i:9">I</span>
+                <span class="title-word" style="--i:10">C</span>
+            </h1>
+            
+            <!-- Subtítulo con efecto de aparición -->
+            <p class="hero-subtitle animated-text">
+                <span class="subtitle-word">Descubre</span>
+                <span class="subtitle-word">tu</span>
+                <span class="subtitle-word">esencia</span>
+                <span class="subtitle-word">perfecta</span>
+                <span class="subtitle-word">con</span>
+                <span class="subtitle-word">nuestros</span>
+                <span class="subtitle-word">perfumes</span>
+            </p>
+            
+            <!-- Contenedor de estadísticas -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="500">+200</div>
+                    <div class="stat-label">Clientes Felices</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">+50</div>
+                    <div class="stat-label">Fragancias</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="8">+1</div>
+                    <div class="stat-label">Años de Experiencia</div>
+                </div>
+            </div>
+            
+            <!-- Frases motivacionales mejoradas con más efectos -->
+            <div class="rotating-phrases">
+                <div class="phrase-container">
+                    <span class="phrase active">
+                        <i class="phrase-icon">✨</i>
+                        <span class="phrase-text">Cada gota cuenta una historia única</span>
+                        <i class="phrase-icon">✨</i>
+                    </span>
+                    <span class="phrase">
+                        <i class="phrase-icon">🌹</i>
+                        <span class="phrase-text">Tu fragancia, tu personalidad</span>
+                        <i class="phrase-icon">🌹</i>
+                    </span>
+                    <span class="phrase">
+                        <i class="phrase-icon">💎</i>
+                        <span class="phrase-text">Elegancia en cada esencia</span>
+                        <i class="phrase-icon">💎</i>
+                    </span>
+                    <span class="phrase">
+                        <i class="phrase-icon">🦋</i>
+                        <span class="phrase-text">Deja tu huella aromática</span>
+                        <i class="phrase-icon">🦋</i>
+                    </span>
+                    <span class="phrase">
+                        <i class="phrase-icon">🌸</i>
+                        <span class="phrase-text">Perfección en cada detalle</span>
+                        <i class="phrase-icon">🌸</i>
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Botones de acción mejorados -->
+            <div class="hero-buttons">
+                <a href="#productos" class="cta-button primary-btn">
+                    <span class="btn-text">
+                        <i class="fas fa-magic"></i>
+                        Explorar Productos
+                    </span>
+                    <div class="btn-background"></div>
+                </a>
+                <a href="#nosotros" class="cta-button secondary-btn">
+                    <span class="btn-text">
+                        <i class="fas fa-heart"></i>
+                        Nuestra Historia
+                    </span>
+                    <div class="btn-background"></div>
+                </a>
+            </div>
+            
+            <!-- Indicador de scroll mejorado -->
+            <div class="scroll-indicator">
+                <div class="scroll-text">Descubre más</div>
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <div class="scroll-arrow">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay con gradiente para mejor legibilidad -->
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Sección de productos -->
+    <section id="productos" class="section">
+        <!-- Título de la sección -->
+        <h2 class="section-title fade-in">Nuestros Perfumes</h2>
+        <!-- Subtítulo descriptivo -->
+        <p class="section-subtitle fade-in">Cada fragancia es una obra de arte creada especialmente para ti</p>
+        
+        <!-- Grid de productos -->
+        <div class="products-grid">
+            <!-- Producto 1: candied fantasy britney spears -->
+            <div class="product-card fade-in">
+                <div class="product-badge new">Nuevo</div> <!-- Etiqueta de producto nuevo -->
+                <div class="product-image-container">
+                    <!-- Aquí irá la imagen del perfume -->
+                    <img src="1.jpg" alt="Essence Floral" class="product-image">
+                    <!-- Fallback emoji si no se carga la imagen -->
+                    <div class="product-emoji">🌸</div>
+                </div>
+                <h3 class="product-name">Candied Fantasy Britney Spears</h3>
+                <p class="product-description">Floral-frutal gourmand, pensado para evocar un estilo femenino, juguetón y soñador.</p>
+                <!-- Información adicional del producto -->
+                <div class="product-notes">
+                    <span class="note">Jazmín</span>
+                    <span class="note">Dulce</span>
+                    <span class="note">Cálido</span>
+                </div>
+                <div class="product-price">Bs. 630</div>
+                <button class="add-to-cart-button" onclick="addToCart('Candied Fantasy Britney Spears', 450, '🌸')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 2: Ocean Breeze -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="2.jpg" alt="Ocean Breeze" class="product-image">
+                    <div class="product-emoji">🌊</div>
+                </div>
+                <h3 class="product-name">Ocean Breeze Unisex de Emper</h3>
+                <p class="product-description">Frescura marina con toques cítricos y notas acuáticas, ideal para cualquier ocasión.</p>
+                <div class="product-notes">
+                    <span class="note">Cítrico</span>
+                    <span class="note">Marino</span>
+                    <span class="note">Fresco</span>
+                </div>
+                <div class="product-price">Bs. 520</div>
+                <button class="add-to-cart-button" onclick="addToCart('Ocean Breeze', 520, '🌊')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 3: Passion Rouge -->
+            <div class="product-card fade-in">
+                <div class="product-badge sale">Oferta</div>
+                <div class="product-image-container">
+                    <img src="4.jpg" alt="Passion Rouge" class="product-image">
+                    <div class="product-emoji">🔥</div>
+                </div>
+                <h3 class="product-name">Natura <br> Luna Intenso</h3>
+                <p class="product-description">Fragancia fuerte y dulce, perfecta para mujeres que quieren sentirse seguras y especiales..</p>
+                <div class="product-notes">
+                    <span class="note">Vainilla</span>
+                    <span class="note">Dulce</span>
+                    <span class="note">Chipre</span>
+                </div>
+                <div class="product-price">
+                    <span class="product-price-old">Bs. 450</span>
+                    <span class="product-price-new">Bs. 250</span>
+                </div>
+                <button class="add-to-cart-button" onclick="addToCart('Passion Rouge', 680, '🔥')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 4: The Icon Supreme -->
+            <div class="product-card fade-in">
+                <div class="product-badge exclusive">Exclusivo</div>
+                <div class="product-image-container">
+                    <img src="3.jpg" alt="Golden Luxury" class="product-image">
+                    <div class="product-emoji">🌟</div>
+                </div>
+                <h3 class="product-name">The Icon Supreme</h3>
+                <p class="product-description">Es una fragancia oriental floral con toques frutales, 
+                    florales blancos, tuberosa y una dulzura envolvente; también presenta matices amaderados, cálidos, especiados y empolvados.</p>
+                <div class="product-notes">
+                    <span class="note">Rosa</span>
+                    <span class="note">Ámbar</span>
+                    <span class="note">Sándalo</span>
+                </div>
+                <div class="product-price">Bs. 600</div>
+                <button class="add-to-cart-button" onclick="addToCart('Golden Luxury', 750, '🌟')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 5: Green Forest -->
+            <div class="product-card fade-in">
+                <div class="product-image-container">
+                    <img src="5.webp" alt="Green Forest" class="product-image">
+                    <div class="product-emoji">🍃</div>
+                </div>
+                <h3 class="product-name">Reb'l Fleur</h3>
+                <p class="product-description">Es una fragancia oriental frutal que combina notas dulces de frutos<br>
+                     rojos y flores blancas, con un toque cálido y sensual que mezcla almizcle y madera suave.</p>
+                <div class="product-notes">
+                    <span class="note">Oriental</span>
+                    <span class="note">Dulce</span>
+                    <span class="note">Calido</span>
+                </div>
+                <div class="product-price">Bs. 800</div>
+                <button class="add-to-cart-button" onclick="addToCart('Green Forest', 380, '🍃')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+
+            <!-- Producto 6: Diamond Elite -->
+            <div class="product-card fade-in">
+                <div class="product-badge exclusive">Edición Limitada</div>
+                <div class="product-image-container">
+                    <img src="6.webp" alt="Diamond Elite" class="product-image">
+                    <div class="product-emoji">💎</div>
+                </div>
+                <h3 class="product-name">Samasara Guerlain Paris</h3>
+                <p class="product-description">Es una fragancia oriental floral intensa que mezcla notas cálidas<br>
+                     de sándalo y vainilla con toques florales de jazmín, creando un aroma elegante, sensual y envolvente.</p>
+                <div class="product-notes">
+                    <span class="note">Jazmín</span>
+                    <span class="note">Calido</span>
+                    <span class="note">Elite</span>
+                </div>
+                <div class="product-price">Bs. 2130</div>
+                <button class="add-to-cart-button" onclick="addToCart('Diamond Elite', 890, '💎')">
+                    <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección del carrito de compras -->
+    <section id="carrito" class="section">
+        <h2 class="section-title fade-in">Mi Carrito de Compras</h2>
+        <div class="cart-section fade-in">
+            <!-- Contenido dinámico del carrito -->
+            <div id="cartContent">
+                <div class="cart-empty">
+                    <i class="fas fa-shopping-cart" style="font-size: 3rem; margin-bottom: 20px; color: #ccc;"></i>
+                    <p>Tu carrito está vacío</p>
+                    <p>¡Agrega algunos perfumes increíbles!</p>
+                </div>
+            </div>
+            
+            <!-- Resumen del carrito (solo visible cuando hay productos) -->
+            <div id="cartSummary" style="display: none;">
+                <div class="cart-summary">
+                    <div class="cart-total">
+                        Total: <span id="cartTotal">Bs. 0</span>
+                    </div>
+                    <button class="checkout-btn" onclick="openCheckoutModal()">
+                        <i class="fas fa-credit-card"></i> Proceder al Pago
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección sobre nosotros -->
+    <section id="nosotros" class="section">
+        <div class="about fade-in">
+            <h2>Sobre Nosotros</h2>
+            <p>PERFUMICHIC nació en 2024 de la pasión por ofrecer experiencias sensoriales únicas. Desde entonces, nos dedicamos a seleccionar las fragancias más exquisitas del mundo para que encuentres ese aroma especial que refleje tu esencia y personalidad.</p>
+            <br>
+            <p>Creemos que cada persona tiene su esencia única, y nuestro objetivo es ayudarte a encontrar esa fragancia perfecta que refleje tu personalidad. Con ingredientes premium importados, garantizamos calidad superior en cada botella.</p>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="section">
+        <h2 class="section-title fade-in">Contáctanos</h2>
+        <div class="contact-form fade-in">
+            <form id="contactForm">
+                <!-- Campo nombre completo -->
+                <div class="form-group">
+                    <label for="contactName">Nombre Completo</label>
+                    <input type="text" id="contactName" name="contactName" required>
+                </div>
+                
+                <!-- Campo teléfono -->
+                <div class="form-group">
+                    <label for="contactPhone">Teléfono</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" required>
+                </div>
+                
+                <!-- Campo asunto -->
+                <div class="form-group">
+                    <label for="contactSubject">Asunto</label>
+                    <select id="contactSubject" name="contactSubject" required>
+                        <option value="">Selecciona un asunto</option>
+                        <option value="consulta">Consulta General</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="colaboracion">Propuesta de Colaboración</option>
+                    </select>
+                </div>
+                
+                <!-- Campo mensaje -->
+                <div class="form-group">
+                    <label for="contactMessage">Mensaje</label>
+                    <textarea id="contactMessage" name="contactMessage" rows="5" required></textarea>
+                </div>
+                
+                <!-- Botón de envío -->
+                <button type="submit" class="submit-button">
+                    <i class="fab fa-whatsapp"></i> Enviar Mensaje por WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sección de redes sociales -->
+    <section id="redes" class="section">
+        <div class="qr-section fade-in">
+            <h2 class="section-title">Síguenos en Redes Sociales</h2>
+            <p style="margin-bottom: 30px; color: #666; font-size: 1.2rem;">Escanea el código QR para seguirnos en nuestras Redes Sociales</p>
+            <!-- Contenedor para imagen QR real -->
+            <div class="qr-code">
+                <img src="Perfumichic.jpg" alt="QR Code Instagram PERFUMICHIC" class="qr-image">
+                <!-- Fallback en caso de que no cargue la imagen -->
+                <div class="qr-fallback">
+                    <i class="fab fa-instagram" style="font-size: 4rem; color: #E4405F;"></i>
+                    <p>@perfumichic_oficial</p>
+                </div>
+            </div>
+            <p style="color: #666;">@perfumichic_oficial</p>
+        </div>
+    </section>
+
+    <!-- Modal de checkout (ventana emergente para finalizar compra) -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="closeCheckoutModal()">&times;</span>
+            <h2><i class="fab fa-whatsapp"></i> Finalizar Pedido por WhatsApp</h2>
+            
+            <form id="checkoutForm">
+                <!-- Resumen del pedido (se llena dinámicamente) -->
+                <div id="orderSummary">
+                    <!-- Contenido dinámico -->
+                </div>
+                
+                <h3 style="margin: 30px 0 20px 0; color: #333;">Datos de Entrega</h3>
+                
+                <!-- Campo nombre del cliente -->
+                <div class="form-group">
+                    <label for="customerName">Nombre Completo</label>
+                    <input type="text" id="customerName" name="customerName" required>
+                </div>
+                
+                <!-- Campo teléfono del cliente -->
+                <div class="form-group">
+                    <label for="customerPhone">Teléfono</label>
+                    <input type="tel" id="customerPhone" name="customerPhone" required placeholder="Ej: 70123456">
+                </div>
+                
+                <!-- Campo dirección de entrega -->
+                <div class="form-group">
+                    <label for="customerAddress">Dirección de Entrega</label>
+                    <textarea id="customerAddress" name="customerAddress" rows="3" required placeholder="Dirección completa con referencias"></textarea>
+                </div>
+                
+                <!-- Campo método de pago -->
+                <div class="form-group">
+                    <label for="paymentMethod">Método de Pago</label>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Selecciona método de pago</option>
+                        <option value="efectivo">Efectivo contra entrega</option>
+                        <option value="transferencia">Transferencia bancaria</option>
+                        <option value="qr">Pago por QR</option>
+                    </select>
+                </div>
+                
+                <!-- Campo notas adicionales (opcional) -->
+                <div class="form-group">
+                    <label for="customerNotes">Notas adicionales (opcional)</label>
+                    <textarea id="customerNotes" name="customerNotes" rows="2" placeholder="Instrucciones especiales para la entrega"></textarea>
+                </div>
+                
+                <!-- Total a pagar -->
+                <div style="text-align: center; margin: 30px 0;">
+                    <div style="font-size: 1.5rem; font-weight: bold; color: #ff6b6b;">
+                        Total a Pagar: <span id="finalTotal">Bs. 0</span>
+                    </div>
+                </div>
+                
+                <!-- Botón para enviar pedido -->
+                <button type="submit" class="submit-button whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Enviar Pedido por WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Botón flotante de WhatsApp -->
+    <div class="whatsapp-float" onclick="openWhatsAppChat()">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-tooltip">¡Escríbenos por WhatsApp!</div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>PERFUMICHIC</h3>
+            <p>Tu esencia perfecta te está esperando</p>
+            <!-- Enlaces a redes sociales -->
+            <div class="social-links">
+                <a href="https://www.instagram.com/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/59164384438?text=¡Hola%20PERFUMICHIC!%20Me%20interesa%20conocer%20más%20sobre%20sus%20perfumes." target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p>&copy; 2025 Yelmi Madian Sivila Alvarado. <br> Todos los derechos reservados.<br>Unidad Educativa Suipacha de Tupiza</p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
